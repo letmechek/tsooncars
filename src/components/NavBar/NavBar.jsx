@@ -9,7 +9,7 @@ export default function NavBar({ user, setUser }) {
     }
 
     return (
-        <nav>
+        <nav className='m-8'>
             <Link to="/orders">Order History</Link>
             &nbsp; | &nbsp;
             <Link to="/orders/new">New Order</Link>
@@ -17,6 +17,9 @@ export default function NavBar({ user, setUser }) {
             Welcome, {user.name}
             &nbsp; | &nbsp;
             <Link to="" onClick={handleLogOut}>Log Out</Link>
+            <div className='bg-red-500'>
+            <h1 className='text-2xl font-bold text-white'>hello </h1>
+            </div>
         </nav>
     )
 }
