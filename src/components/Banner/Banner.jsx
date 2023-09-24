@@ -1,4 +1,3 @@
-import react from "@heroicons/react";
 import bannerImage from '../../Assets/images/banner.png'
 
 
