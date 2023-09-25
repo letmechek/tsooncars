@@ -2,7 +2,7 @@ import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
 
 export default function CollapsibleFaq({ title, content, isOpen, toggleFaq }) {
   return (
-    <div className="mb-4 mx-24">
+    <div className="mb-4 mx-auto max-w-4xl ">
       <button
         className="flex items-center justify-between w-full bg-white p-3 rounded-md shadow-2xl"
         onClick={toggleFaq}
@@ -17,7 +17,7 @@ export default function CollapsibleFaq({ title, content, isOpen, toggleFaq }) {
         </span>
       </button>
       {isOpen && (
-        <div className="bg-white p-3 rounded-md shadow-2xl">
+        <div className="bg-white text-lg p-3 rounded-md shadow-2xl">
           {content}
         </div>
       )}
