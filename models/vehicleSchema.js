@@ -5,7 +5,7 @@ const Schema = require('mongoose').Schema;
 const vehicleSchema = new Schema({
   name: { type: String, required: true },
   image: [{ type: String, required: true }],
-  category: {type: Schema.Types.ObjectId, ref: 'Category'},
+  VehicleModel: {type: Schema.Types.ObjectId, ref: 'vehicleCategories'},
   price: { type: Number, required: true, default: 0 },
   
 }, {

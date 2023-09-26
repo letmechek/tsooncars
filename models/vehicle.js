@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-require('./category');
+require('./vehicleCategory');
 const vehicleSchema = require('./vehicleSchema');
 
 

@@ -8,20 +8,19 @@ import { useState } from 'react'
 import './Navbar.css'
 
 const navigation = [
-  { name: '% PROMOTIONS', href: '#', current: false },
+  { name: '% PROMOTIONS', href: '/', current: false },
   { name: 'CALL US', href: '#', current: false },
   { name: 'BOOK NOW', href: '#', current: false },
 ]
 
 const secondNav = [
-    {name: 'HOME PAGE', href: '#', current: false},
+    {name: 'HOME PAGE', to: '/', current: false},
     {name: 'MENU', href: '#', current: false},
     {name: 'ALL OUR CARS', href: '#', current: false},
     {name: 'OUR LOCATION', href: '#', current: false},
 ]
 
 function classNames(...classes) {
-    console.log(classes)
   return classes.filter(Boolean).join(' ')
 }
 
@@ -176,9 +175,9 @@ export default function NavBar() {
                     <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
                         {secondNav.map((item) => (
-                        <a
+                        <Link
                             key={item.name}
-                            href={item.href}
+                            to={item.to}
                             className={classNames(
                             item.current ? 'bg-yellow-400 text-white' : 'text-white font-semibold hover:bg-yellow-400 hover:text-white',
                             'rounded-md px-3 py-2 text-sm font-medium'
@@ -186,7 +185,7 @@ export default function NavBar() {
                             aria-current={item.current ? 'page' : undefined}
                         >
                             {item.name}
-                        </a>
+                        </Link>
                         ))}
                     </div>
                     </div>

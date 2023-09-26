@@ -18,6 +18,9 @@ app.use(require('./config/checkToken'))
 
 app.use('/api/users', require('./routes/api/users'))
 
+app.use('/api/vehicles', require('./routes/api/vehicles'))
+app.use('/api/vehicleCategories', require('./routes/api/vehicleCategories'))
+
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
