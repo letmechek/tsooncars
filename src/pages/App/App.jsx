@@ -7,6 +7,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import Home from '../Home/Home'
 import Brands from '../../components/Brands/Brands';
 import Vehicles from '../../components/Vehicles/Vehicles';
+import VehicleDetail from '../../components/VehicleDetail/VehicleDetail';
 
 export default function App() {
   const [user, setUser] = useState({})
@@ -19,6 +20,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/brands/:name" element={<Vehicles />} />
+            <Route path="/:name/:id" element={<VehicleDetail />} />
+
           </Routes>
         </>
         :
