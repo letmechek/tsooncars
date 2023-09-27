@@ -6,8 +6,9 @@ import AuthPage from '../AuthPage/AuthPage'
 import Navbar from '../../components/Navbar/Navbar'
 import Home from '../Home/Home'
 import Brands from '../../components/Brands/Brands';
-import Vehicles from '../../components/Vehicles/Vehicles';
+import Vehicles from '../../components/VehicleItems/VehicleItems';
 import VehicleDetail from '../../components/VehicleDetail/VehicleDetail';
+import Vehicle from '../Vehicle/Vehicle';
 
 export default function App() {
   const [user, setUser] = useState({})
@@ -19,7 +20,7 @@ export default function App() {
           <Navbar user={user} setUser={setUser}  />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/brands/:name" element={<Vehicles />} />
+            <Route path="/brands" element={<Vehicle />} />
             <Route path="/:name/:id" element={<VehicleDetail />} />
 
           </Routes>

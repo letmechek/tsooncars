@@ -10,7 +10,7 @@ export default function VehicleDetail() {
   const [vehicle, setVehicle] = useState(null);
 
   const settings = {
-    dots: true, // Enable dots navigation
+    dots: true, 
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -32,7 +32,6 @@ export default function VehicleDetail() {
   }, [id]);
 
   if (!vehicle) {
-    // Handle the case when the vehicle data is still loading
     return <div>Loading...</div>;
   }
 
