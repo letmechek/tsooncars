@@ -16,7 +16,7 @@ const navigation = [
 const secondNav = [
     {name: 'HOME PAGE', to: '/', current: false},
     {name: 'MENU', href: '#', current: false},
-    {name: 'ALL OUR CARS', href: '#', current: false},
+    {name: 'ALL OUR CARS', to: '/brands', current: false},
     {name: 'OUR LOCATION', href: '#', current: false},
 ]
 

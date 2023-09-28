@@ -21,12 +21,10 @@ const cat = categories.map((cat, index) => (
 return (
     <div >
       <h2 className="text-center text-gray-700 text-3xl font-bold my-4 hover:scale-105 ">BRANDS</h2>
-            <Link to={`/brands/${cat.name}`} >
-         
-            </Link>
       {cat}
     </div>
   );
 }
+         
 
 
