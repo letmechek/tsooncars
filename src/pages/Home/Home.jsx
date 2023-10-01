@@ -5,6 +5,7 @@ import Faq from "../../components/Faq/Faq";
 import * as vehiclesAPI from '../../utilities/vehicles-api'
 import * as vehicleCategoriesAPI from '../../utilities/vehicle-categories-api'
 import  fetchVehiclesAndCategories from '../../utilities/vehicle-categories-api'
+import { Link } from "react-router-dom";
 
 export default function Home() {
     const [vehicleItems, setVehicleItems] = useState([])
@@ -18,11 +19,15 @@ export default function Home() {
     return (
        <>
         <Banner />
+        <div className="">
+        <Link to='/brands'>
         <Brands
              categories={categoriesRef.current}
-             activeCat={activeCat}
-             setActiveCat={setActiveCat}
+            //  activeCat={''}
+            //  setActiveCat={setActiveCat}
         />
+        </Link>
+        </div>
         <Faq />
        </>
     )

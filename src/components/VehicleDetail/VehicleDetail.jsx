@@ -22,7 +22,7 @@ export default function VehicleDetail() {
       try {
         const response = await vehiclesAPI.getById(id);
         setVehicle(response);
-        console.log(response);
+        // console.log(response);
       } catch (error) {
         console.error(error);
       }

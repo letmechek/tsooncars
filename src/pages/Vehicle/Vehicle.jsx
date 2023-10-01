@@ -15,7 +15,9 @@ export default function Vehicle() {
             const vehicles = await vehiclesAPI.getAll()
             categoriesRef.current = [...new Set(vehicles.map(vehicle => vehicle.VehicleModel.image))];
             setVehicleItems(vehicles)
+            // console.log(vehicles)
             setActiveCat(categoriesRef.current[0])
+            // console.log(categoriesRef.current)
         })()
     }, [])
   return (
@@ -25,7 +27,6 @@ export default function Vehicle() {
         activeCat={activeCat}
         setActiveCat={setActiveCat}
     />
-  
 
     <VehicleList vehicleItems={vehicleItems.filter(vehicle => vehicle.VehicleModel.image === activeCat)} />
     </>

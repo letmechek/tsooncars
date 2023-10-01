@@ -644,8 +644,8 @@ const Vehicle = require('./models/vehicle');
         },
         {name: 'ROLLS ROYCE WRAITH (BLACK & BROWN)', 
                 VehicleModel: rolls, price: 644,
-                image:[ '/images/rolls-royce/rrwraithblackandbrown/1.webp',
-                        '/images/rolls-royce/rrwraithblackandbrown/2.webp',
+                image:[ '/images/rolls-royce/rrwraithblackandbrown/1.jpeg',
+                        '/images/rolls-royce/rrwraithblackandbrown/2.jpeg',
                         '/images/rolls-royce/rrwraithblackandbrown/3.webp',          
             ], 
         },
@@ -726,7 +726,7 @@ const Vehicle = require('./models/vehicle');
         // Mercedes /////////////////
         {name: 'MERCEDES S CLASS 2021 (BLACK)', 
                 VehicleModel: mercedes, price: 387,
-                image:[ '/images/mercedes/sclass2021black/1.webp',
+                image:[ '/images/mercedes/sclass2021black/1.jpeg',
                         '/images/mercedes/sclass2021black/2.webp',
                         '/images/mercedes/sclass2021black/3.webp',          
                         '/images/mercedes/sclass2021black/4.webp',
@@ -764,14 +764,11 @@ const Vehicle = require('./models/vehicle');
         },
         {name: 'Mercedes AMG GT 63 (BLEU)', 
                 VehicleModel: mercedes, price: 335,
-                image:[ '/images/mercedes/c200convertiblewhite/1.webp',
-                        '/images/mercedes/c200convertiblewhite/2.webp',
-                        '/images/mercedes/c200convertiblewhite/3.webp',          
-                        '/images/mercedes/c200convertiblewhite/4.webp',
+                image:[ '/images/mercedes/amggt63bleu/1.jpg',
             ], 
         },
     ])
-    console.log(vehicles)
-    console.log(VehicleModels)
+    // console.log(vehicles)
+    // console.log(VehicleModels)
     process.exit();
 })();
