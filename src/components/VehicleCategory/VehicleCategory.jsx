@@ -12,7 +12,6 @@ export default function VehicleCategory() {
         async function fetchVehicles(){
             const vehicles = await vehiclesAPI.getVehiclesByModel(modelId)
             setVehicles(vehicles)
-            console.log(vehicles)
         }
         fetchVehicles()
     }, [modelId])

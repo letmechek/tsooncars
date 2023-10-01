@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
-export default function BrandsList({ cat, key }) {
+export default function BrandsList({ cat }) {
   return (
     <Link to={`/model/${cat._id}`}>
     <div

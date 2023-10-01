@@ -9,15 +9,14 @@ export default function Brands({activeCat, setActiveCat, categories }) {
       {categories.map((cat, index) => (
         <div
         key={cat._id}
-        onClick={() => setActiveCat(cat)}
+        // onClick={() => setActiveCat(cat)}
         className={` ${
           activeCat === cat && 'm-2'
         }`}
         >
-          <BrandsList cat={cat} key={cat._id} setActiveCat={setActiveCat} />
+          <BrandsList cat={cat} setActiveCat={setActiveCat} />
         </div>
       ))}
-      {console.log(categories)}
     </div>
     </div>
   );
