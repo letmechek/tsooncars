@@ -28,7 +28,7 @@ export default function Vehicle() {
         setActiveCat={setActiveCat}
     />
 
-    <VehicleList vehicleItems={vehicleItems.filter(vehicle => vehicle.VehicleModel.image === activeCat)} />
+    <VehicleList vehicleItems={vehicleItems} />
     </>
   )
 }

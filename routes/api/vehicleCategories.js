@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const vehicleCategoriesCtrl = require('../../controllers/api/vehicleCategories')
+const vehicleCategoriesCtrl = require('../../controllers/api/vehicleCategories.js')
 
 router.get('/', vehicleCategoriesCtrl.index);
-// router.get('/:id', vehiclesCtrl.show);
 
 module.exports = router;

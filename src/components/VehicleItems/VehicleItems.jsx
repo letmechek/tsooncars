@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function VehicleItems({ vehicleItem }) {
+  {console.log(vehicleItem)}
   return (
     <div className="bg-white p-4 m-4 shadow-xl rounded-lg hover:shadow-2xl flex flex-col items-center justify-between">
       <Link
-        to={`/${vehicleItem.VehicleModel.name}/${vehicleItem._id}`}
+        to={`/${vehicleItem.name}/${vehicleItem._id}`}
         className=""
       >
         <img

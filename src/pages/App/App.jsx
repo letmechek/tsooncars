@@ -9,6 +9,7 @@ import Brands from '../../components/Brands/Brands';
 import Vehicles from '../../components/VehicleItems/VehicleItems';
 import VehicleDetail from '../../components/VehicleDetail/VehicleDetail';
 import Vehicle from '../Vehicle/Vehicle';
+import VehicleCategory from '../../components/VehicleCategory/VehicleCategory';
 
 export default function App() {
   const [user, setUser] = useState({})
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/brands" element={<Vehicle />} />
             <Route path="/:name/:id" element={<VehicleDetail />} />
+            <Route path='/model/:modelId' element={<VehicleCategory />} />
 
           </Routes>
         </>

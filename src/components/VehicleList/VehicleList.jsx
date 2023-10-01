@@ -1,16 +1,14 @@
 import React from 'react';
 import VehicleItems from '../VehicleItems/VehicleItems';
 
-export default function VehicleList({ vehicleItems, handleAddToOrder }) {
+export default function VehicleList({ vehicleItem, handleAddToOrder }) {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto max-w-6xl">
-      {vehicleItems.map(vehicle => (
+    <div className="">
         <VehicleItems
-          key={vehicle._id}
-          vehicleItem={vehicle}
+          key={vehicleItem._id}
+          vehicleItem={vehicleItem}
           handleAddToOrder={handleAddToOrder}
         />
-      ))}
     </div>
   );
 }

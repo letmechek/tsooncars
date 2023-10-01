@@ -19,7 +19,7 @@ app.use(require('./config/checkToken'))
 app.use('/api/users', require('./routes/api/users'))
 
 app.use('/api/vehicles', require('./routes/api/vehicles'))
-// app.use('/api/vehicles/model', require('./routes/api/vehicles'))
+app.use('/api/category/model', require('./routes/api/vehicleCategories'))
 
 
 app.get('/*', function(req, res) {

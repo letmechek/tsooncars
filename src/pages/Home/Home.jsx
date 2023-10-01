@@ -2,32 +2,30 @@ import { useEffect, useState, useRef } from "react";
 import Banner from "../../components/Banner/Banner";
 import Brands from "../../components/Brands/Brands";
 import Faq from "../../components/Faq/Faq";
-import * as vehiclesAPI from '../../utilities/vehicles-api'
-import * as vehicleCategoriesAPI from '../../utilities/vehicle-categories-api'
-import  fetchVehiclesAndCategories from '../../utilities/vehicle-categories-api'
-import { Link } from "react-router-dom";
+import * as categoriesAPI from '../../utilities/vehicle-categories-api'
 
 export default function Home() {
     const [vehicleItems, setVehicleItems] = useState([])
-    const [activeCat, setActiveCat] = useState('')
-    const categoriesRef = useRef([])
-    useEffect(() => {
-        fetchVehiclesAndCategories(setVehicleItems, setActiveCat, categoriesRef)
-    },[])
 
+    useEffect(() => {
+        const fetchUniqueCategories = async () => {
+          try {
+            const vehicles = await categoriesAPI.getAll();
+            setVehicleItems(vehicles);
+          } catch (error) {
+            console.error(error);
+          }
+        };
+    
+        fetchUniqueCategories();
+      }, []);
 
     return (
        <>
         <Banner />
-        <div className="">
-        <Link to='/brands'>
         <Brands
-             categories={categoriesRef.current}
-            //  activeCat={''}
-            //  setActiveCat={setActiveCat}
+             categories={vehicleItems}
         />
-        </Link>
-        </div>
         <Faq />
        </>
     )
