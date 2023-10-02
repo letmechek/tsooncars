@@ -16,7 +16,7 @@ const SITEMAP = [
       links: [
         { name: "Discord", to: "/discord" },
         { name: "Twitter", to: "/twitter" },
-        { name: "GitHub", to: "https://github.com/letmechek" },
+        { name: "GitHub", href: "/https://github.com/letmechek" },
         { name: "Contact Us", to: "/contact-us" },
       ],
     },
@@ -31,11 +31,7 @@ const SITEMAP = [
       ],
     },
   ];
-  const footerStyle = {
-    position: "fixed",
-    bottom: "0",  
 
-  };
 const currentYear = new Date().getFullYear();
  
 export default function FooterWithSitemap() {

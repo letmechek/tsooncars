@@ -7,11 +7,14 @@ import logo from '../../Assets/images/logo.png'
 import { useState } from 'react'
 import './Navbar.css'
 import { useNavigate } from 'react-router-dom'
+import CartIcon from '../CartIcon/CartIcon'
+import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 
 const navigation = [
   { name: '% PROMOTIONS', href: '/', current: false },
-  { name: 'CALL US', href: '#', current: false },
+  { name: 'CALL US', href: 'tel:+1234567890', current: false },
   { name: 'BOOK NOW', href: '#', current: false },
+  {name: <CartIcon />, to: '/cart', current: false},
 ]
 
 const secondNav = [
@@ -19,6 +22,7 @@ const secondNav = [
     {name: 'ABOUT US', to: '/about-us', current: false},
     {name: 'ALL OUR CARS', to: '/brands', current: false},
     {name: 'OUR LOCATION', to: '/location', current: false},
+   
 ]
 
 function classNames(...classes) {
@@ -73,6 +77,12 @@ export default function NavBar() {
                             {item.name}
                         </a>
                         ))}
+                        <div className="">
+        {/* Include the Cart component here */}
+        
+
+        {/* ... Rest of the code ... */}
+      </div>
                     </div>
                     </div>
                 </div>
@@ -163,9 +173,11 @@ export default function NavBar() {
                     </Link>
                 ))}
                 </div>
+                
             </Disclosure.Panel>
             </>
         )}
+        
         </Disclosure>
         <Disclosure as="nav" className="bg-custom-yellow hidden md:block custom-shadow">
             <>
@@ -283,8 +295,10 @@ export default function NavBar() {
                 </div>
             </Disclosure.Panel>
             </>
+            
         
         </Disclosure>
+        
         </>
     )
     }

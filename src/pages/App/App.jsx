@@ -12,6 +12,8 @@ import Location from '../../components/Location/Location';
 import  FooterWithSitemap  from '../../components/Footer/Footer';
 import Faq from '../../components/Faq/Faq';
 import AboutUs from '../../components/AboutUs/AboutUs';
+import Cart from '../../components/CartIcon/CartIcon';
+import OrderDetail from '../../components/OrderDetail/OrderDetail';
 
 export default function App() {
   const [user, setUser] = useState({})
@@ -29,6 +31,7 @@ export default function App() {
             <Route path="/location" element={<Location />} />
             <Route path='/faqs' element={<Faq />} />  
             <Route path='/about-us' element={<AboutUs />} />
+            <Route path='/cart' element={<OrderDetail />}/>
           </Routes>
           <FooterWithSitemap  /> 
         </>
