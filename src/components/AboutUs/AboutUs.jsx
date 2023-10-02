@@ -26,7 +26,6 @@ function AboutUs() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }
