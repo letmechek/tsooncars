@@ -13,24 +13,18 @@ export default function Vehicle() {
     useEffect(function(){
         (async function(){
             const vehicles = await vehiclesAPI.getAll()
-            // categoriesRef.current = [...new Set(vehicles.map(vehicle => vehicle.VehicleModel.image))];
             setVehicleItems(vehicles)
-            console.log(vehicles)
-            // setActiveCat(categoriesRef.current[0])
-            // console.log(categoriesRef.current)
         })()
     }, [])
   return (
     <>
-    {/* <Brands
-        categories={categoriesRef.current}
-        activeCat={activeCat}
-        setActiveCat={setActiveCat}
-    /> */}
-
-{vehicleItems.map((vehicle, index) => (
-        <VehicleItems key={vehicle._id} vehicleItem={vehicle} />
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    {vehicleItems.map((vehicle, index) => (
+      <VehicleItems key={vehicle._id} vehicleItem={vehicle} />
       ))}
-    </>
-  )
+  </div>
+  </>
+)
 }
+
+

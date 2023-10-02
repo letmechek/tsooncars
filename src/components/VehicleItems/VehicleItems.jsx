@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function VehicleItems({ vehicleItem }) {
   return (
-    <div className="bg-white p-4 m-4 shadow-xl rounded-lg hover:shadow-2xl flex flex-col items-center justify-between">
+    <div className="bg-white p-4 m-4 shadow-xl rounded-lg hover:shadow-2xl flex flex-col items-center justify-between ">
       <Link
         to={`/${vehicleItem.name}/${vehicleItem._id}`}
         className=""

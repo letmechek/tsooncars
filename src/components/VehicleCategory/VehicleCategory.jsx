@@ -17,10 +17,11 @@ export default function VehicleCategory() {
     }, [modelId])
 console.log(vehicles)
   return (
-    <div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {vehicles && vehicles.map(vehicle => (
             <VehicleList key={vehicle._id} vehicleItem={vehicle} />
         ))}
     </div>
   )
 }
+

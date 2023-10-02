@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom'
 import * as userService from '../../utilities/users-service'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon, MapPinIcon } from '@heroicons/react/24/outline'
 import logo from '../../Assets/images/logo.png'
 import { useState } from 'react'
 import './Navbar.css'
+import { useNavigate } from 'react-router-dom'
 
 const navigation = [
   { name: '% PROMOTIONS', href: '/', current: false },
@@ -15,9 +16,9 @@ const navigation = [
 
 const secondNav = [
     {name: 'HOME PAGE', to: '/', current: false},
-    {name: 'MENU', href: '#', current: false},
+    {name: 'ABOUT US', to: '/about-us', current: false},
     {name: 'ALL OUR CARS', to: '/brands', current: false},
-    {name: 'OUR LOCATION', href: '#', current: false},
+    {name: 'OUR LOCATION', to: '/location', current: false},
 ]
 
 function classNames(...classes) {
@@ -26,6 +27,7 @@ function classNames(...classes) {
 
 export default function NavBar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    let navigate 
 
     return (
         <>
@@ -48,11 +50,13 @@ export default function NavBar() {
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="flex flex-shrink-0 items-center">
+                        <Link to="/">
                     <img
                         className="h-16 w-auto"
                         src={logo}
                         alt="Your Company"
                     />
+                    </Link>
                     </div>
                     <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
@@ -145,10 +149,10 @@ export default function NavBar() {
             <Disclosure.Panel className="sm:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2">
                 {secondNav.concat(navigation).map((item) => (
-                    <Disclosure.Button
+                    <Link
                     key={item.name}
                     as="a"
-                    href={item.href}
+                    to={item.to}
                     className={classNames(
                         item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                         'block rounded-md px-3 py-2 text-base font-medium'
@@ -156,7 +160,7 @@ export default function NavBar() {
                     aria-current={item.current ? 'page' : undefined}
                     >
                     {item.name}
-                    </Disclosure.Button>
+                    </Link>
                 ))}
                 </div>
             </Disclosure.Panel>
@@ -263,10 +267,10 @@ export default function NavBar() {
             <Disclosure.Panel className="sm:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2">
                 {navigation.map((item) => (
-                    <Disclosure.Button
+                    <Link
                     key={item.name}
                     as="a"
-                    href={item.href}
+                    to={item.to}
                     className={classNames(
                         item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                         'block rounded-md px-3 py-2 text-base font-medium'
@@ -274,7 +278,7 @@ export default function NavBar() {
                     aria-current={item.current ? 'page' : undefined}
                     >
                     {item.name}
-                    </Disclosure.Button>
+                    </Link>
                 ))}
                 </div>
             </Disclosure.Panel>

@@ -30,7 +30,7 @@ export default function Faq() {
 
   return (
     <>
-    <div className='pb-4'>
+    <div className='pb-4 mt-8'>
       <CollapsibleFaq
         title="Are there any age restrictions?"
         content="Clients are required to be in possession of a valid driving license. Driver’s minimum age limit is 18 years and maximum age limit is 65 years."
