@@ -79,7 +79,7 @@ const Vehicle = require('./models/vehicle');
         '/images/audi/r82021greynardo/2.webp',
         '/images/audi/r82021greynardo/3.webp',
         '/images/audi/r82021greynardo/4.webp',
-        '/images/audi/r82021greynardo/5.webp',
+        '/images/audi/r82021greynardo/5.jpg',
         '/images/audi/r82021greynardo/6.webp',
         '/images/audi/r82021greynardo/7.webp',
         '/images/audi/r82021greynardo/8.webp',

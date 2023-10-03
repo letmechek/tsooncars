@@ -78,10 +78,6 @@ export default function NavBar() {
                         </a>
                         ))}
                         <div className="">
-        {/* Include the Cart component here */}
-        
-
-        {/* ... Rest of the code ... */}
       </div>
                     </div>
                     </div>
