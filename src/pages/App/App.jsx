@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import './App.css';
 import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage'
@@ -20,25 +20,24 @@ export default function App() {
   // getUser()
   return (
     <main className="">
-      { user ? 
-        <>
-          <Navbar user={user} setUser={setUser}  />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/brands" element={<Vehicle />} />
-            <Route path="/:name/:id" element={<VehicleDetail />} />
-            <Route path='/model/:modelId' element={<VehicleCategory />} />
-            <Route path="/location" element={<Location />} />
-            <Route path='/faqs' element={<Faq />} />  
-            <Route path='/about-us' element={<AboutUs />} />
-            <Route path='/cart' element={<OrderDetail />}/>
-          </Routes>
-          <FooterWithSitemap  /> 
-        </>
-        :
-        <AuthPage setUser={setUser}/>
-      }
-    </main>
+  <Navbar user={user} setUser={setUser} />
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/brands" element={<Vehicle />} />
+    <Route path="/:name/:id" element={<VehicleDetail />} />
+    <Route path="/model/:modelId" element={<VehicleCategory />} />
+    <Route path="/location" element={<Location />} />
+    <Route path="/faqs" element={<Faq />} />
+    <Route path="/about-us" element={<AboutUs />} />
+    {user ? (
+      <Route path="/cart" element={<OrderDetail />} />
+    ) : (
+      <Route path="/cart" element={<Navigate to="/login" />} />
+    )}
+    <Route path="/login" element={<AuthPage />} />
+  </Routes>
+  <FooterWithSitemap />
+</main>
   );
 }
 
