@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import './App.css';
 import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage'
-import Navbar from '../.././components/Navbar/Navbar'
+import Navbar from '../../components/Navbar/Navbar.jsx'
 import Home from '../Home/Home'
 import VehicleDetail from '../../components/VehicleDetail/VehicleDetail';
 import Vehicle from '../Vehicle/Vehicle';
