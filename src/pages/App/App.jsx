@@ -3,13 +3,13 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import './App.css';
 import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage'
-import Navbar from '../../components/Navbar/Navbar'
+import Navbar from '../.././components/Navbar/Navbar'
 import Home from '../Home/Home'
 import VehicleDetail from '../../components/VehicleDetail/VehicleDetail';
 import Vehicle from '../Vehicle/Vehicle';
 import VehicleCategory from '../../components/VehicleCategory/VehicleCategory';
 import Location from '../../components/Location/Location';
-import  FooterWithSitemap  from '../../components/Footer/Footer';
+import FooterWithSitemap  from '../../components/Footer/Footer';
 import Faq from '../../components/Faq/Faq';
 import AboutUs from '../../components/AboutUs/AboutUs';
 import Cart from '../../components/CartIcon/CartIcon';
