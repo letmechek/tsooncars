@@ -20,7 +20,7 @@ export default function App() {
   // getUser()
   return (
     <main className="">
-  <Navbar user={user} setUser={setUser} />
+  <Navbar  />
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/brands" element={<Vehicle />} />
