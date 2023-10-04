@@ -39,7 +39,7 @@ export default function Faq() {
       />
 
       <CollapsibleFaq
-        title="Do you require a deposit to rent a vehicle?"
+        title="Do i need a deposit to rent a vehicle?"
         content="Yes. Your deposit type, amount and method of payment will vary by agreement type."
         isOpen={isOpen2}
         toggleFaq={toggleFaq2}
@@ -51,7 +51,7 @@ export default function Faq() {
         toggleFaq={toggleFaq3}
       />
       <CollapsibleFaq
-        title="Documents required to hire"
+        title="Documents required to rent a vehicle"
         content="For Tourists visiting Canada
 
         - Copy of Passport
