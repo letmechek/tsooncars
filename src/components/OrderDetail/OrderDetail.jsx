@@ -51,8 +51,11 @@ console.log(cart)
             <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Price</h3>
             <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Total</h3>
           </div>
-          {lineItems ? (
-            cart.lineItems.map((item) => <LineItem key={item.id} lineItem={item} name={item.vehicle.name} />)
+          {cart ? (
+            cart.lineItems.map((vehicle) => <LineItem lineItem={vehicle}
+            isPaid={cart.isPaid}
+            key={vehicle._id}
+            handleChangeQty={handleChangeQty} />)
           ) : (
             <p className="text-center py-5">No items in the cart. <a href="#">Continue shopping</a></p>
           )}
@@ -63,7 +66,7 @@ console.log(cart)
           {lineItems && (
             <>
               <div className="flex justify-between mt-10 mb-5">
-                <span className="font-semibold text-sm uppercase">Items {cart.length}</span>
+                <span className="font-semibold text-sm uppercase">Items {cart.lineItems.length}</span>
                 <span className="font-semibold text-sm">
                   {/* ${cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)} */}
                 </span>
@@ -86,12 +89,9 @@ console.log(cart)
               <div className="border-t mt-8">
                 <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                   <span>Total cost</span>
-                  {/* <span>
-                    $
-                    {cart
-                      .reduce((total, item) => total + item.price * item.quantity, 0)
-                      .toFixed(2)}
-                  </span> */}
+                  <span>
+                  ${cart.orderTotal.toFixed(2)}
+                  </span>
                 </div>
                 <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
                   Checkout
