@@ -5,8 +5,10 @@ import { Carousel } from 'react-responsive-carousel';
 import first from '../../Assets/images/first.webp'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Brands from '../Brands/Brands';
+import * as ordersAPI from '../../utilities/orders-api';
 
 export default function VehicleDetail() {
+  const [cart, setCart] = useState(null)
   const { id } = useParams();
   const [vehicle, setVehicle] = useState(null);
 
@@ -26,7 +28,12 @@ export default function VehicleDetail() {
   if (!vehicle) {
     return <div>Loading...</div>;
   }
-//  handle add to order
+
+  async function handleAddToOrder(id) {
+    const updatedCart = await ordersAPI.addItemToCart(id)
+    setCart(updatedCart)
+  }
+
   return (
     <div>
 
@@ -48,7 +55,7 @@ export default function VehicleDetail() {
     <h2 className="text-4xl font-semibold text-center md:text-left mt-4 text-gray-800">{vehicle.name}</h2>
     <p className="text-green-700 font-bold text-2xl text-center md:text-left mt-4">${vehicle.price}</p>
     <p className="text-gray-600 mt-4 text-lg">{vehicle.description}</p>
-    <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded mt-6 md:mt-4">
+    <button onClick={() => handleAddToOrder(id)} className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded mt-6 md:mt-4">
       Rent Now
     </button>
   </div>

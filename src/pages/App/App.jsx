@@ -29,11 +29,7 @@ export default function App() {
     <Route path="/location" element={<Location />} />
     <Route path="/faqs" element={<Faq />} />
     <Route path="/about-us" element={<AboutUs />} />
-    {user ? (
       <Route path="/cart" element={<OrderDetail />} />
-    ) : (
-      <Route path="/cart" element={<Navigate to="/login" />} />
-    )}
     <Route path="/login" element={<AuthPage />} />
   </Routes>
   <FooterWithSitemap />

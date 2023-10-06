@@ -8,12 +8,13 @@ import { Navigate } from 'react-router-dom';
 export default function OrderDetail() {
   const [ cart, setCart ] = useState(null)
 
-useEffect(function() {  
-  (async function() {
-    const cart = await ordersAPI.getCart()
-    setCart(cart)
-})();
-}, [])
+  useEffect(() => {
+    async function fetchCart() {
+      const cart = await ordersAPI.getCart();
+      setCart(cart);
+    }
+    fetchCart();
+  }, []);
 async function handleAddToOrder(vehicleId) {
   const updatedCart = await ordersAPI.addItemToCart(vehicleId)
   setCart(updatedCart)
@@ -35,14 +36,14 @@ async function handleCheckout() {
       handleChangeQty={handleChangeQty}
     />
   )) : null;
-
+console.log(cart)
   return (
     <div className="container mx-auto mt-10">
       <div className="flex shadow-md my-10">
         <div className="w-3/4 bg-white px-10 py-10">
           <div className="flex justify-between border-b pb-8">
             <h1 className="font-semibold text-2xl">Shopping Cart</h1>
-            <h2 className="font-semibold text-2xl">{cart.length} Items</h2>
+            <h2 className="font-semibold text-2xl"> Items</h2>
           </div>
           <div className="flex mt-10 mb-5">
             <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
@@ -50,8 +51,8 @@ async function handleCheckout() {
             <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Price</h3>
             <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Total</h3>
           </div>
-          {lineItems.length ? (
-            cart.map((item) => <LineItem key={item.id} item={item} />)
+          {lineItems ? (
+            cart.lineItems.map((item) => <LineItem key={item.id} lineItem={item} name={item.vehicle.name} />)
           ) : (
             <p className="text-center py-5">No items in the cart. <a href="#">Continue shopping</a></p>
           )}
@@ -64,7 +65,7 @@ async function handleCheckout() {
               <div className="flex justify-between mt-10 mb-5">
                 <span className="font-semibold text-sm uppercase">Items {cart.length}</span>
                 <span className="font-semibold text-sm">
-                  ${cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}
+                  {/* ${cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)} */}
                 </span>
               </div>
               <div>
@@ -85,12 +86,12 @@ async function handleCheckout() {
               <div className="border-t mt-8">
                 <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                   <span>Total cost</span>
-                  <span>
+                  {/* <span>
                     $
                     {cart
                       .reduce((total, item) => total + item.price * item.quantity, 0)
                       .toFixed(2)}
-                  </span>
+                  </span> */}
                 </div>
                 <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
                   Checkout

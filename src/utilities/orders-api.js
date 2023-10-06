@@ -6,12 +6,12 @@ export function getCart() {
   return sendRequest(`${BASE_URL}/cart`);
 }
 
-export function addItemToCart(productId) {
-  return sendRequest(`${BASE_URL}/cart/products/${productId}`, 'POST');
+export function addItemToCart(vehicleId) {
+  return sendRequest(`${BASE_URL}/cart/vehicles/${vehicleId}`, 'POST');
 }
 
-export function setItemQtyInCart(productId, newQty) {
-  return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { productId, newQty });
+export function setItemQtyInCart(vehicleId, newQty) {
+  return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { vehicleId, newQty });
 }
 
 export function checkout() {
