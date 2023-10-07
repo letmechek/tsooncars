@@ -31,6 +31,7 @@ export default function VehicleDetail() {
 
   async function handleAddToOrder(id) {
     const updatedCart = await ordersAPI.addItemToCart(id)
+    alert('Your order has been added to the cart')
     setCart(updatedCart)
   }
 

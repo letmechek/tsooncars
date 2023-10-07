@@ -28,18 +28,17 @@ async function handleCheckout() {
   await ordersAPI.checkout()
   Navigate('/orders')
 }
-  const lineItems = cart ? cart.lineItems.map((vehicle) => (
-    <LineItem
-      lineItem={vehicle}
-      isPaid={cart.isPaid}
-      key={vehicle._id}
-      handleChangeQty={handleChangeQty}
-    />
-  )) : null;
+  // const lineItems = cart ? cart.lineItems.map((vehicle) => (
+  //   <LineItem
+  //     lineItem={vehicle}
+  //     isPaid={cart.isPaid}
+  //     key={vehicle._id}
+  //     handleChangeQty={handleChangeQty}
+  //   />
+  // )) : null;
 console.log(cart)
   return (
     <div className="container mx-auto mt-10 ">
-    {/* Use flex-col for mobile screens */}
     <div className="flex shadow-md flex-col my-10 sm:flex-row">
       <div className="w-full sm:w-3/4 bg-white px-10 py-10">
         <div className="flex justify-between border-b pb-8">
@@ -48,7 +47,7 @@ console.log(cart)
         </div>
         <div className="flex mt-10 mb-5">
           <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Quantity</h3>
+          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Days</h3>
           <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Price</h3>
           <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Total</h3>
         </div>
@@ -61,7 +60,7 @@ console.log(cart)
   
       <div id="summary" className="w-full sm:w-1/4 px-8 py-10">
         <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
-        {lineItems && (
+        {cart && (
           <>
             <div className="flex justify-between mt-10 mb-5">
               <span className="font-semibold text-sm uppercase">Items {cart.lineItems.length}</span>

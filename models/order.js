@@ -17,7 +17,9 @@ lineItemSchema.virtual('extPrice').get(function() {
 const orderSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User', required: false },
     lineItems: [lineItemSchema],
-    isPaid: { type: Boolean, default: false }
+    isPaid: { type: Boolean, default: false },
+    lastModified: { type: Date, default: Date.now } 
+
 }, {
     timestamps: true,
     toJSON: { virtuals: true }
@@ -63,7 +65,6 @@ orderSchema.methods.setItemQty = function(vehicleId, newQty) {
     } else if(lineItem){
         lineItem.qty = newQty
     }
-
     return cart.save()
 }
 
