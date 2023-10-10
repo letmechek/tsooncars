@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import * as vehiclesAPI from '../../utilities/vehicles-api';
 import { Carousel } from 'react-responsive-carousel';
 import first from '../../Assets/images/first.webp'
@@ -11,6 +11,7 @@ export default function VehicleDetail() {
   const [cart, setCart] = useState(null)
   const { id } = useParams();
   const [vehicle, setVehicle] = useState(null);
+  let navigate = useNavigate();
 
   useEffect(() => {
     async function fetchVehicle() {
@@ -33,6 +34,7 @@ export default function VehicleDetail() {
     const updatedCart = await ordersAPI.addItemToCart(id)
     alert('Your order has been added to the cart')
     setCart(updatedCart)
+    navigate('/cart')
   }
 
   return (

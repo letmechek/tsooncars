@@ -3,6 +3,7 @@ import { ShoppingBagIcon } from '@heroicons/react/24/outline';
 import LineItem from '../LineItem/LineItem';
 import * as ordersAPI from '../../utilities/orders-api';
 import { Navigate } from 'react-router-dom';
+import CartIcon from '../CartIcon/CartIcon';
 
 
 export default function OrderDetail() {
@@ -28,16 +29,13 @@ async function handleCheckout() {
   await ordersAPI.checkout()
   Navigate('/orders')
 }
-  // const lineItems = cart ? cart.lineItems.map((vehicle) => (
-  //   <LineItem
-  //     lineItem={vehicle}
-  //     isPaid={cart.isPaid}
-  //     key={vehicle._id}
-  //     handleChangeQty={handleChangeQty}
-  //   />
-  // )) : null;
+  const lineItems = cart ? cart.lineItems.map((vehicle) => (
+    <CartIcon totalQty={cart.lineItems.length} /> 
+  )) : null;
+ 
 console.log(cart)
   return (
+    <>
     <div className="container mx-auto mt-10 ">
     <div className="flex shadow-md flex-col my-10 sm:flex-row">
       <div className="w-full sm:w-3/4 bg-white px-10 py-10">
@@ -71,7 +69,9 @@ console.log(cart)
             <div>
               <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
               <select className="block p-2 text-gray-600 w-full text-sm">
-                <option>Standard shipping - $10.00</option>
+                <option>Self Pickup - $0.00</option>
+                <option>Front Door Delivery - $300.00</option>
+                <option>Full Tank Of Gas - $200.00</option>
               </select>
             </div>
             <div className="py-10">
@@ -97,4 +97,5 @@ console.log(cart)
       </div>
     </div>
   </div>
+    </>
   )}  
