@@ -41,8 +41,8 @@ export default function VehicleDetail() {
   return (
     <div>
 
-<div className="bg-white p-8 flex flex-col md:flex-row items-center">
-  <div className="w-full md:w-2/5 rounded-xl overflow-hidden">
+<div className="bg-white p-8 flex flex-col md:flex-row items-center mx-auto max-w-6xl">
+  <div className="w-full md:w-3/5 rounded-xl overflow-hidden">
     <Carousel showThumbs={false}>
       {vehicle.image.map((image, index) => (
         <div key={index}>
