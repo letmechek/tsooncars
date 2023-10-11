@@ -65,17 +65,17 @@ export default function VehicleDetail() {
   </div>
 </div>
 
-    <div className='flex flex-col md:flex-row p-14  mx-auto max-w-6xl '>
+<div className='flex flex-col md:flex-row p-4 mx-auto max-w-6xl '>
   <img src={first} alt='firstImage' className="w-full md:w-1/2 object-cover rounded-l-lg" />
-  <div className='w-full md:w-1/2 bg-custom-blue text-gray-200 p-24 mx-auto max-w-4xl rounded-r-lg '>
-  <h1 className="text-4xl md:text-7xl font-semibold pb-6">First Class Service</h1>
-  <p className='text-3xl whitespace-normal md:whitespace-pre-line '>We really appreciate your time and make the entire process of renting an exotic car hassle-free. You can decide on the car you want and rent it in just a few minutes.</p>
-        <div className='bg-red-500 p-4 rounded-full font-semibold text-2xl mt-4 text-center '>
-        <a href='tel:+123456789' >Call Us Now</a>
-        </div>
-      </div>
+  <div className='w-full md:w-1/2 bg-custom-blue text-gray-200 p-4 md:p-24 mx-auto max-w-4xl rounded-r-lg '>
+    <h1 className="text-4xl md:text-7xl font-semibold pb-6">First Class Service</h1>
+    <p className='text-3xl whitespace-normal md:whitespace-pre-line max-w-full'>We really appreciate your time and make the entire process of renting an exotic car hassle-free. You can decide on the car you want and rent it in just a few minutes.</p>
+    <div className='bg-red-500 p-4 rounded-full font-semibold text-2xl mt-4 text-center '>
+      <a href='tel:+123456789' >Call Us Now</a>
     </div>
-    </div>
+  </div>
+</div>
+</div>
   );
 }
           
