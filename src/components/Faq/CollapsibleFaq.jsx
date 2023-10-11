@@ -18,7 +18,7 @@ export default function CollapsibleFaq({ title, content, isOpen, toggleFaq }) {
       </button>
       {isOpen && (
         <div className="bg-white text-lg p-3 rounded-md shadow-2xl">
-          {content}
+          <ul>{content}</ul>
         </div>
       )}
     </div>
