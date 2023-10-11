@@ -1,9 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import * as vehiclesAPI from '../../utilities/vehicles-api';
 import VehicleItems from '../../components/VehicleItems/VehicleItems';
-import Brands from '../../components/Brands/Brands';
-import VehicleList from '../../components/VehicleList/VehicleList';
-
 
 export default function Vehicle() {
     const [vehicleItems, setVehicleItems] = useState([]);

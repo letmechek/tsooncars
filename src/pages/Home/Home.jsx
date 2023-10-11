@@ -3,15 +3,18 @@ import Banner from "../../components/Banner/Banner";
 import Brands from "../../components/Brands/Brands";
 import Faq from "../../components/Faq/Faq";
 import * as categoriesAPI from '../../utilities/vehicle-categories-api'
+import Loader from "../../components/Loader/Loader";
 
 export default function Home() {
     const [vehicleItems, setVehicleItems] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const fetchUniqueCategories = async () => {
           try {
             const vehicles = await categoriesAPI.getAll();
             setVehicleItems(vehicles);
+            setIsLoading(false)
           } catch (error) {
             console.error(error);
           }
@@ -21,12 +24,18 @@ export default function Home() {
       }, []);
 
     return (
-       <>
-        <Banner />
-        <Brands
-             categories={vehicleItems}
-        />
-        <Faq />
-       </>
-    )
+      <>
+      {isLoading ? (
+        <div className="">
+          <Loader />
+        </div>
+      ) : (
+        <>
+          <Banner />
+          <Brands categories={vehicleItems} />
+          <Faq />
+        </>
+      )}
+    </>
+  );
 }

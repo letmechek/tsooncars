@@ -4,8 +4,9 @@ import * as vehiclesAPI from '../../utilities/vehicles-api';
 import { Carousel } from 'react-responsive-carousel';
 import first from '../../Assets/images/first.webp'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import Brands from '../Brands/Brands';
 import * as ordersAPI from '../../utilities/orders-api';
+import Loader from '../Loader/Loader';
+
 
 export default function VehicleDetail() {
   const [cart, setCart] = useState(null)
@@ -27,7 +28,7 @@ export default function VehicleDetail() {
   }, [id]);
 
   if (!vehicle) {
-    return <div>Loading...</div>;
+    return <div><Loader /></div>
   }
 
   async function handleAddToOrder(id) {
