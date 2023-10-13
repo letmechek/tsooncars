@@ -29,8 +29,8 @@ export default function App() {
     <Route path="/location" element={<Location />} />
     <Route path="/faqs" element={<Faq />} />
     <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/cart" element={user ? <OrderDetail setUser={setUser} /> : <Navigate to='/login' />} />
-    <Route path="/login" element={<AuthPage />} />
+      <Route path="/cart" element={user ? <OrderDetail /> : <Navigate to='/login' />} />
+    <Route path="/login" element={<AuthPage setUser={setUser}/>} />
   </Routes>
   <FooterWithSitemap />
 </main>

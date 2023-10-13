@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 import logo from '../../Assets/images/logo.png'
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -8,6 +9,8 @@ export default function LoginForm({ setUser }) {
     password: ''
   });
   const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -15,14 +18,17 @@ export default function LoginForm({ setUser }) {
   }
 
   async function handleSubmit(evt) {
-    // Prevent form from being submitted to the server
     evt.preventDefault();
     try {
-      // The promise returned by the signUp service method 
-      // will resolve to the user object included in the
-      // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
+
+      // Check if there is a 'from' location state
+      if (location.state && location.state.from) {
+        navigate(location.state.from.pathname); // Redirect back to the original page
+      } else {
+        navigate('/'); // Default redirection if 'from' state is not available
+      }
     } catch {
       setError('Log In Failed - Try Again');
     }
@@ -56,7 +62,6 @@ export default function LoginForm({ setUser }) {
           </div>
         </div>
         <div>
-
           <button className='flex w-full justify-center rounded-md bg-custom-yellow px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-yellow-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' type="submit">LOG IN</button>
         </div>
         </form>
@@ -65,3 +70,4 @@ export default function LoginForm({ setUser }) {
     </div>
   );
 }
+
