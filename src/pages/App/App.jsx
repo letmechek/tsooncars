@@ -24,7 +24,7 @@ export default function App() {
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/brands" element={<Vehicle />} />
-    <Route path="/:name/:id" element={<VehicleDetail />} />
+    <Route path="/:name/:id" element={<VehicleDetail user={user} setUser={setUser}/>} />
     <Route path="/model/:modelId" element={<VehicleCategory />} />
     <Route path="/location" element={<Location />} />
     <Route path="/faqs" element={<Faq />} />

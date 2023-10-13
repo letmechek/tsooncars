@@ -2,14 +2,16 @@ import { Link } from 'react-router-dom'
 import * as userService from '../../utilities/users-service'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon, MapPinIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon, MapPinIcon,ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline'
 import logo from '../../Assets/images/logo.png'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CartIcon from '../CartIcon/CartIcon'
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 
+
 const navigation = [
+   
   { name: '% PROMOTIONS', href: '/', current: false },
   { name: 'CALL US', href: 'tel:+1234567890', current: false },
   { name: 'BOOK NOW', href: '#', current: false },
@@ -28,10 +30,15 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function NavBar() {
+
+
+export default function NavBar({user , setUser}) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     let navigate 
-
+    function handleLogOut() {
+        userService.logOut()
+        setUser(null)
+    }
     return (
         <>
         <Disclosure as="nav" className="bg-black">
@@ -74,6 +81,7 @@ export default function NavBar() {
                             aria-current={item.current ? 'page' : undefined}
                         >
                             {item.name}
+                            {/* <Link to="" onClick={handleLogOut}><ArrowLeftOnRectangleIcon/></Link> */}
                         </a>
                         ))}
                         <div className="">
@@ -92,7 +100,7 @@ export default function NavBar() {
                     </button> */}
 
                     {/* Profile dropdown */}
-                    {/* <Menu as="div" className="relative ml-3">
+                  <Menu as="div" className="relative ml-3">
                     <div>
                         <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="absolute -inset-1.5" />
@@ -114,7 +122,7 @@ export default function NavBar() {
                         leaveTo="transform opacity-0 scale-95"
                     >
                         <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <Menu.Item>
+                        {/* <Menu.Item>
                             {({ active }) => (
                             <a
                                 href="#"
@@ -123,8 +131,8 @@ export default function NavBar() {
                                 Your Profile
                             </a>
                             )}
-                        </Menu.Item>
-                        <Menu.Item>
+                        </Menu.Item> */}
+                        {/* <Menu.Item>
                             {({ active }) => (
                             <a
                                 href="#"
@@ -133,20 +141,21 @@ export default function NavBar() {
                                 Settings
                             </a>
                             )}
-                        </Menu.Item>
+                        </Menu.Item> */}
                         <Menu.Item>
                             {({ active }) => (
-                            <a
-                                href="#"
+                            <Link
+                               to='/'
+                                onClick={handleLogOut}
                                 className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                             >
                                 Sign out
-                            </a>
+                            </Link>
                             )}
                         </Menu.Item>
                         </Menu.Items>
                     </Transition>
-                    </Menu> */}
+                    </Menu> 
                 </div>
                 </div>
             </div>

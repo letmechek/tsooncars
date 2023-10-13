@@ -8,7 +8,7 @@ import * as ordersAPI from '../../utilities/orders-api';
 import Loader from '../Loader/Loader';
 
 
-export default function VehicleDetail() {
+export default function VehicleDetail({user}) {
   const [cart, setCart] = useState(null)
   const { id } = useParams();
   const [vehicle, setVehicle] = useState(null);
@@ -32,10 +32,15 @@ export default function VehicleDetail() {
   }
 
   async function handleAddToOrder(id) {
-    const updatedCart = await ordersAPI.addItemToCart(id)
-    alert('Your order has been added to the cart')
-    setCart(updatedCart)
-    navigate('/cart')
+    if(user){
+
+      const updatedCart = await ordersAPI.addItemToCart(id)
+      alert('Your order has been added to the cart')
+      setCart(updatedCart)
+      navigate('/cart')
+    }else{
+      navigate('/login')
+    }
   }
 
   return (
