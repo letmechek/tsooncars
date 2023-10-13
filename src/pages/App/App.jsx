@@ -16,11 +16,11 @@ import Cart from '../../components/CartIcon/CartIcon';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 
 export default function App() {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(getUser())
   // getUser()
   return (
     <main className="">
-  <Navbar  />
+  <Navbar user={user} />
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/brands" element={<Vehicle />} />
@@ -29,7 +29,7 @@ export default function App() {
     <Route path="/location" element={<Location />} />
     <Route path="/faqs" element={<Faq />} />
     <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/cart" element={<OrderDetail />} />
+      <Route path="/cart" element={user ? <OrderDetail setUser={setUser} /> : <Navigate to='/login' />} />
     <Route path="/login" element={<AuthPage />} />
   </Routes>
   <FooterWithSitemap />
