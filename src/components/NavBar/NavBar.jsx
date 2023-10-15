@@ -80,7 +80,6 @@ export default function NavBar({user , setUser}) {
                             aria-current={item.current ? 'page' : undefined}
                         >
                             {item.name}
-                            {/* <Link to="" onClick={handleLogOut}><ArrowLeftOnRectangleIcon/></Link> */}
                         </a>
                         ))}
                         <div className="">

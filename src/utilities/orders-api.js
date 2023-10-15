@@ -14,6 +14,6 @@ export function setItemQtyInCart(vehicleId, newQty) {
   return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { vehicleId, newQty });
 }
 
-export function checkout() {
-  return sendRequest(`${BASE_URL}/cart/checkout`, 'POST');
+export function checkout(orderId) {
+  return sendRequest(`${BASE_URL}/create-checkout-session/${orderId}`, 'POST');
 }

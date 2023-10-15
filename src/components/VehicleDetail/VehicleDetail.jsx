@@ -53,7 +53,7 @@ export default function VehicleDetail({user}) {
           <div key={index}>
             <img
               src={image}
-              alt={`${vehicle.name} - Image ${index + 1}`}
+              alt={`${vehicle.name} `}
               className="h-auto w-full object-cover"
             />
           </div>

@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { ShoppingBagIcon } from '@heroicons/react/24/outline';
 import LineItem from '../LineItem/LineItem';
 import * as ordersAPI from '../../utilities/orders-api';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import CartIcon from '../CartIcon/CartIcon';
+import ReactCheckout from '../ReactCheckout/ReactCheckout';
 
 
 export default function OrderDetail() {
@@ -16,24 +17,29 @@ export default function OrderDetail() {
     }
     fetchCart();
   }, []);
-async function handleAddToOrder(vehicleId) {
-  const updatedCart = await ordersAPI.addItemToCart(vehicleId)
-  setCart(updatedCart)
-}
+
 async function handleChangeQty(vehicleId, newQty) {
   const updatedCart = await ordersAPI.setItemQtyInCart(vehicleId, newQty)
   setCart(updatedCart)
 }
-async function handleCheckout() {
+// const orderId =  cart._id 
+const orderId = cart ? cart._id : null
+async function handleCheckout(orderId) {
+  try {
+    console.log(orderId)
+    
+    await ordersAPI.checkout(orderId);
+  } catch (error) {
+    console.error(error);
+    
+  }
 
-  await ordersAPI.checkout()
-  Navigate('/orders')
 }
   const lineItems = cart ? cart.lineItems.map((vehicle) => (
     <CartIcon totalQty={cart.lineItems.length} /> 
   )) : null;
  
-console.log(cart)
+console.log(orderId)
   return (
     <>
     <div className="container mx-auto mt-10 ">
@@ -52,7 +58,7 @@ console.log(cart)
         {cart ? (
           cart.lineItems.map((vehicle) => <LineItem lineItem={vehicle} isPaid={cart.isPaid} key={vehicle._id} handleChangeQty={handleChangeQty} />)
         ) : (
-          <p className="text-center py-5">No items in the cart. <a href="#">Continue shopping</a></p>
+          <p className="text-center py-5">No items in the cart. <Link to="/brands">Continue shopping</Link></p>
         )}
       </div>
   
@@ -63,7 +69,6 @@ console.log(cart)
             <div className="flex justify-between mt-10 mb-5">
               <span className="font-semibold text-sm uppercase">Items {cart.lineItems.length}</span>
               <span className="font-semibold text-sm">
-                {/* ${cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)} */}
               </span>
             </div>
             <div>
@@ -88,9 +93,10 @@ console.log(cart)
                 <span>Total cost</span>
                 <span>${cart.orderTotal.toFixed(2)}</span>
               </div>
-              <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
+              {/* <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
                 Checkout
-              </button>
+              </button> */}
+            <ReactCheckout amount={cart.orderTotal.toFixed(2)}  className='bg-red-500'/>
             </div>
           </>
         )}
