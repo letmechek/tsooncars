@@ -125,6 +125,16 @@ export default function NavBar({user , setUser}) {
                             </a>
                             )}
                         </Menu.Item>
+                        {/* <Menu.Item>
+                            {({ active }) => (
+                            <Link
+                                to="/cart"
+                                className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            >
+                               <CartIcon  />
+                            </Link>
+                            )}
+                        </Menu.Item> */}
                         <Menu.Item>
                             {({ active }) => (
                             <Link

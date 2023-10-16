@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { ShoppingBagIcon } from '@heroicons/react/24/outline';
 import LineItem from '../LineItem/LineItem';
 import * as ordersAPI from '../../utilities/orders-api';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import CartIcon from '../CartIcon/CartIcon';
-import ReactCheckout from '../ReactCheckout/ReactCheckout';
 
 
 export default function OrderDetail() {
   const [ cart, setCart ] = useState(null)
-
+  const navigate = useNavigate();
   useEffect(() => {
     async function fetchCart() {
       const cart = await ordersAPI.getCart();
@@ -26,14 +25,12 @@ async function handleChangeQty(vehicleId, newQty) {
 const orderId = cart ? cart._id : null
 async function handleCheckout(orderId) {
   try {
-    console.log(orderId)
-    
-    await ordersAPI.checkout(orderId);
+    const response = await ordersAPI.checkout(orderId);
+    console.log(response.sessionUrl)
+    window.open(response.sessionUrl, '_blank')
   } catch (error) {
     console.error(error);
-    
   }
-
 }
   const lineItems = cart ? cart.lineItems.map((vehicle) => (
     <CartIcon totalQty={cart.lineItems.length} /> 
@@ -93,10 +90,10 @@ console.log(orderId)
                 <span>Total cost</span>
                 <span>${cart.orderTotal.toFixed(2)}</span>
               </div>
-              {/* <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
+              <button onClick={() => handleCheckout(orderId)} className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
                 Checkout
-              </button> */}
-            <ReactCheckout amount={cart.orderTotal.toFixed(2)}  className='bg-red-500'/>
+              </button>
+            {/* <ReactCheckout amount={cart.orderTotal.toFixed(2)}  /> */}
             </div>
           </>
         )}
