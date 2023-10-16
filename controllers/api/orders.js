@@ -54,8 +54,8 @@ async function checkout(req, res) {
         },
       ],
       mode: 'payment',
-      success_url: 'https://sams-streetwear.herokuapp.com/success',
-      cancel_url: 'https://sams-streetwear.herokuapp.com/cancel',
+      success_url: 'https://tsooncars-e2376d515cb8.herokuapp.com/success',
+      cancel_url: 'https://tsooncars-e2376d515cb8.herokuapp.com/cancel',
     });
 
   res.json({ sessionUrl: session.url });
