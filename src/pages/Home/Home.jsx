@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, } from "react";
 import Banner from "../../components/Banner/Banner";
 import Brands from "../../components/Brands/Brands";
 import Faq from "../../components/Faq/Faq";
@@ -39,3 +39,4 @@ export default function Home() {
     </>
   );
 }
+

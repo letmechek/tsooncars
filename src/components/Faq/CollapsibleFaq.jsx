@@ -1,8 +1,9 @@
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
+import ScrollReveal from "scrollreveal";
 
 export default function CollapsibleFaq({ title, content, isOpen, toggleFaq }) {
   return (
-    <div className="mb-4 mx-auto max-w-4xl ">
+    <div className="mb-4 mx-auto max-w-4xl scroll">
       <button
         className="flex items-center justify-between w-full bg-white p-3 rounded-md shadow-2xl"
         onClick={toggleFaq}

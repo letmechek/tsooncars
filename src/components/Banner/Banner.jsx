@@ -1,10 +1,11 @@
 import bannerImage from '../../Assets/images/banner.png'
+import ScrollReveal from "scrollreveal";
 
 
 export default function Banner() {
     return  (
         <>
-  <div className="relative">
+  <div className="relative scroll">
     <img src={bannerImage} alt='home' className="w-full h-auto object-cover" />
     <div className="absolute inset-0 flex items-center justify-center">
       <div className="z-10 space-x-4">

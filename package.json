@@ -27,6 +27,7 @@
     "react-slick": "^0.29.0",
     "react-spinners": "^0.13.8",
     "react-stripe-checkout": "^2.6.3",
+    "scrollreveal": "^4.0.9",
     "serve-favicon": "^2.5.0",
     "slick-carousel": "^1.8.1",
     "stripe": "^13.10.0",

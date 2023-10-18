@@ -17,7 +17,7 @@ import OrderDetail from '../../components/OrderDetail/OrderDetail';
 
 export default function App() {
   const [user, setUser] = useState(getUser())
-  // getUser()
+
   return (
     <main className="">
   <Navbar user={user} />
