@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {Link} from 'react-router-dom'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import * as vehiclesAPI from '../../utilities/vehicles-api';
 import { Carousel } from 'react-responsive-carousel';
@@ -6,6 +7,8 @@ import first from '../../Assets/images/first.webp'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import * as ordersAPI from '../../utilities/orders-api';
 import Loader from '../Loader/Loader';
+import { ChevronLeftIcon } from '@heroicons/react/24/solid';
+
 
 
 export default function VehicleDetail({user}) {
@@ -46,6 +49,13 @@ export default function VehicleDetail({user}) {
 
   return (
 <>
+<Link
+          to="#"
+          onClick={() => navigate(-1)}
+          className=" hover:underline mb-2 inline-flex items-center p-2"
+        >
+          <ChevronLeftIcon className="h-6 w-6" /> Back
+ </Link>
   <div className="bg-white p-8 flex flex-col md:flex-row items-center mx-auto max-w-6xl">
     <div className="w-full md:w-3/5 rounded-xl overflow-hidden">
       <Carousel showThumbs={false}>
@@ -69,7 +79,7 @@ export default function VehicleDetail({user}) {
       </button>
     </div>
   </div>
-
+ 
   <div className='flex flex-col md:flex-row p-4 mx-auto max-w-6xl '>
     <img src={first} alt='firstImage' className="w-full md:w-1/2 object-cover rounded-l-lg" />
     <div className='w-full md:w-1/2 bg-custom-blue text-gray-200 p-4 md:p-24 mx-auto max-w-4xl rounded-r-lg '>
