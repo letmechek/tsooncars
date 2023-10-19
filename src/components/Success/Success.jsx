@@ -27,7 +27,7 @@ function Success() {
         </svg>
         <h2 className="text-2xl font-semibold mb-4">Payment Successful</h2>
         <p className="text-gray-600 mb-4">Thank you for your payment. Your transaction was successful.</p>
-        <Link to='/brands' className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded">
+        <Link to='/' className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded">
           Return to Home
         </Link>
       </div>
