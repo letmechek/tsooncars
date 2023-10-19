@@ -14,7 +14,8 @@ import Faq from '../../components/Faq/Faq';
 import AboutUs from '../../components/AboutUs/AboutUs';
 import Cart from '../../components/CartIcon/CartIcon';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
-
+import Cancel from '../../components/Cancel/Cancel'
+import Success from '../../components/Success/Success'
 export default function App() {
   const [user, setUser] = useState(getUser())
 
@@ -22,6 +23,9 @@ export default function App() {
     <main className="">
   <Navbar user={user} />
   <Routes>
+
+    <Route path="/cancel" element={<Cancel />} />
+    <Route path="/success" element={<Success />} />
     <Route path="/" element={<Home />} />
     <Route path="/brands" element={<Vehicle />} />
     <Route path="/:name/:id" element={<VehicleDetail user={user} setUser={setUser}/>} />

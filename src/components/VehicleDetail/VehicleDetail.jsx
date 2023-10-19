@@ -9,8 +9,6 @@ import * as ordersAPI from '../../utilities/orders-api';
 import Loader from '../Loader/Loader';
 import { ChevronLeftIcon } from '@heroicons/react/24/solid';
 
-
-
 export default function VehicleDetail({user}) {
   const [cart, setCart] = useState(null)
   const { id } = useParams();
@@ -50,11 +48,11 @@ export default function VehicleDetail({user}) {
   return (
 <>
 <Link
-          to="#"
-          onClick={() => navigate(-1)}
-          className=" hover:underline mb-2 inline-flex items-center p-2"
-        >
-          <ChevronLeftIcon className="h-6 w-6" /> Back
+      to="#"
+      onClick={() => navigate(-1)}
+      className=" hover:underline mb-2 inline-flex items-center p-2"
+    >
+      <ChevronLeftIcon className="h-6 w-6" /> Back
  </Link>
   <div className="bg-white p-8 flex flex-col md:flex-row items-center mx-auto max-w-6xl">
     <div className="w-full md:w-3/5 rounded-xl overflow-hidden">
