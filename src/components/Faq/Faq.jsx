@@ -31,7 +31,8 @@ export default function Faq() {
   return (
     <>
     <div className='pb-4 mt-8'>
-      <CollapsibleFaq
+      <h1 className="text-center text-gray-700 text-3xl font-bold my-4 hover:scale-105">FAQ</h1>
+ <CollapsibleFaq
         title="Are there any age restrictions?"
         content="Yes, there are age restrictions when renting a vehicle with us. To rent a standard vehicle, you must be at least 21 years old. However, please note that age requirements can vary depending on the type of vehicle you wish to rent. We recommend checking with our team to confirm the age restrictions for your specific rental."
         isOpen={isOpen1}

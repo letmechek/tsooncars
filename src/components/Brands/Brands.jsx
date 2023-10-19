@@ -5,7 +5,8 @@ export default function Brands({activeCat, categories }) {
 
   return (
     <div>
-      <h1 className="text-center text-gray-700 text-3xl font-bold my-4 hover:scale-105 font-custom-font">Shop By Category</h1>
+      
+      <h1 className="text-center text-gray-700 text-3xl font-bold my-4 hover:scale-105">SHOP BY BRAND</h1>
     <div className=" grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 justify-center scale-100">
       {categories.map((cat, index) => (
         <div
