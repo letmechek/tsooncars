@@ -5,7 +5,8 @@ const babyProductSchema = require('./babyProductSchema')
 const lineItemSchema = new Schema({
     qty: { type: Number, default: 1 },
     babyProduct: babyProductSchema
-}, {
+}, 
+{
     // timestamps: true,
     toJSON: { virtuals: true }
 })

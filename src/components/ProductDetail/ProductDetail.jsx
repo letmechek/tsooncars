@@ -9,7 +9,7 @@ import * as ordersAPI from "../../utilities/orders-api";
 import Loader from "../Loader/Loader";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 
-export default function VehicleDetail({ user }) {
+export default function ProductDetail({ user }) {
   const [cart, setCart] = useState(null);
   const { id } = useParams();
   const [vehicle, setVehicle] = useState(null);

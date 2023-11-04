@@ -5,7 +5,7 @@ import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage'
 import Navbar from '../../components/NavBar/NavBar'
 import Home from '../Home/Home'
-import VehicleDetail from '../../components/VehicleDetail/VehicleDetail';
+import ProductDetail from '../../components/ProductDetail/ProductDetail';
 import Vehicle from '../Vehicle/Vehicle';
 import BabyCategory from '../../components/BabyCategory/BabyCategory';
 import Location from '../../components/Location/Location';
@@ -28,7 +28,7 @@ export default function App() {
     <Route path="/success" element={<Success />} />
     <Route path="/" element={<Home />} />
     <Route path="/products" element={<Vehicle />} />
-    <Route path="/:name/:id" element={<VehicleDetail user={user} setUser={setUser}/>} />
+    <Route path="/:name/:id" element={<ProductDetail user={user} setUser={setUser}/>} />
     <Route path="/model/:modelId" element={<BabyCategory />} />
     <Route path="/location" element={<Location />} />
     <Route path="/faqs" element={<Faq />} />
