@@ -53,11 +53,11 @@ export default function VehicleDetail({ user }) {
       <Link
         to="#"
         onClick={() => navigate(-1)}
-        className=" hover:underline mb-2 inline-flex items-center p-2"
+        className="hover:underline mb-2 inline-flex items-center p-2"
       >
         <ChevronLeftIcon className="h-6 w-6" /> Back
       </Link>
-      <div className="bg-white p-8 flex flex-col md:flex-row items-center mx-auto max-w-6xl">
+      <div className="bg-white p-8 flex flex-col md:flex-row  mx-auto max-w-6xl">
         <div className="w-full md:w-3/5 rounded-xl overflow-hidden">
           <Carousel showThumbs={false}>
             {vehicle.image.map((image, index) => (
@@ -79,6 +79,16 @@ export default function VehicleDetail({ user }) {
             ${vehicle.price}
           </p>
           <p className="text-gray-600 mt-4 text-lg">{vehicle.description}</p>
+          <div className="flex flex-wrap gap-2 mt-4">
+            {vehicle.size.map((size, index) => (
+              <div
+                // key={index}
+                className="border border-gray-300 rounded-md p-2 text-sm"
+              >
+                {size}
+              </div>
+            ))}
+          </div>
           <button
             onClick={() => handleAddToOrder(id)}
             className="bg-custom-yellow hover:bg-pink-800 text-white font-bold py-2 px-4 rounded mt-6 md:mt-4"
