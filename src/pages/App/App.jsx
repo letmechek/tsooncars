@@ -7,7 +7,7 @@ import Navbar from '../../components/NavBar/NavBar'
 import Home from '../Home/Home'
 import VehicleDetail from '../../components/VehicleDetail/VehicleDetail';
 import Vehicle from '../Vehicle/Vehicle';
-import VehicleCategory from '../../components/VehicleCategory/VehicleCategory';
+import BabyCategory from '../../components/BabyCategory/BabyCategory';
 import Location from '../../components/Location/Location';
 import FooterWithSitemap  from '../../components/Footer/Footer';
 import Faq from '../../components/Faq/Faq';
@@ -27,9 +27,9 @@ export default function App() {
     <Route path="/cancel" element={<Cancel />} />
     <Route path="/success" element={<Success />} />
     <Route path="/" element={<Home />} />
-    <Route path="/brands" element={<Vehicle />} />
+    <Route path="/products" element={<Vehicle />} />
     <Route path="/:name/:id" element={<VehicleDetail user={user} setUser={setUser}/>} />
-    <Route path="/model/:modelId" element={<VehicleCategory />} />
+    <Route path="/model/:modelId" element={<BabyCategory />} />
     <Route path="/location" element={<Location />} />
     <Route path="/faqs" element={<Faq />} />
     <Route path="/about-us" element={<AboutUs />} />

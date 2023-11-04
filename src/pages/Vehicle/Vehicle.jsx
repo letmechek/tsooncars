@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import * as vehiclesAPI from '../../utilities/vehicles-api';
+import * as vehiclesAPI from '../../utilities/baby-products-api';
 import VehicleItems from '../../components/VehicleItems/VehicleItems';
 import Loader from '../../components/Loader/Loader';
 

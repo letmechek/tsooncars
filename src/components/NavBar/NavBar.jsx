@@ -20,7 +20,7 @@ const navigation = [
 const secondNav = [
     {name: 'HOME PAGE', to: '/', current: false},
     {name: 'ABOUT US', to: '/about-us', current: false},
-    {name: 'ALL OUR CARS', to: '/brands', current: false},
+    {name: 'Shop All', to: '/products', current: false},
     {name: 'OUR LOCATION', to: '/location', current: false},
    
 ]
@@ -40,7 +40,7 @@ export default function NavBar({user , setUser}) {
     }
     return (
         <>
-        <Disclosure as="nav" className="bg-black">
+        <Disclosure as="nav" className="bg-amber-500">
         {({ open }) => (
             <>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -61,7 +61,7 @@ export default function NavBar({user , setUser}) {
                     <div className="flex flex-shrink-0 items-center">
                         <Link to="/">
                     <img
-                        className="h-16 w-auto"
+                        className="h-16 w-auto filter invert"
                         src={logo}
                         alt="Your Company"
                     />

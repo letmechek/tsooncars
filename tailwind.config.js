@@ -5,8 +5,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'custom-font': ['"DM Serif Display"', 'serif']
+      },
       backgroundColor: {
-        'custom-yellow': '#FFDE5B',
+        'custom-yellow': '#EBE2D5',
         'custom-blue': 'rgba(18, 45, 55)',
       }
     },
