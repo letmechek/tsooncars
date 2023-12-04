@@ -7,7 +7,7 @@ export default function Banner() {
     return  (
         <>
   <div className="relative scroll ">
-  <img src={bannerImage} alt="home" className="w-full h-auto object-cover " style={{ borderBottomLeftRadius: '5rem', borderBottomRightRadius: '5rem' }} />
+  <img src={bannerImage} alt="home" className="w-full h-auto object-cover " style={{ borderBottomLeftRadius: '3rem', borderBottomRightRadius: '3rem' }} />
       <div className="absolute inset-0 flex items-center justify-center text-white">
         <div className="z-10 space-x-4 text-center">
           <h1 className="text-4xl font-extrabold mb-4 font-cool ">Luxury Car Rentals</h1>

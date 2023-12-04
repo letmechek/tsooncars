@@ -1,10 +1,12 @@
 import React from 'react';
-import AboutUsBanner from '../Banner/AboutUsBanner';
+import ProfileBanners from '../Banner/ProfileBanners';
+import aboutUsImage from '../../Assets/images/banner2.jpeg'
+
 
 function AboutUs() {
   return (
     <>
-    <AboutUsBanner />
+    <ProfileBanners image={aboutUsImage} title='About us' />
     <div className="bg-gray-100">
       <section className="py-8 container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
