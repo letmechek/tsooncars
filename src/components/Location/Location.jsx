@@ -12,11 +12,11 @@ export default function Location() {
   return (
     <>
      <ProfileBanners image={banner3} title='Our Location'/>
-    <div>
+    <div className="p-4 bg-gray-50">
     <MapContainer   
         center={center}
         zoom={16}
-        style={{ height: "50vh", width: "100%" }}
+        style={{ height: "50vh", width: "100%"}}
         className="leaflet-container mt-3"
         attributionControl={false}
      >
