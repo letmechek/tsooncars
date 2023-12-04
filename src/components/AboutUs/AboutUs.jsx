@@ -1,15 +1,11 @@
 import React from 'react';
+import AboutUsBanner from '../Banner/AboutUsBanner';
 
 function AboutUs() {
   return (
+    <>
+    <AboutUsBanner />
     <div className="bg-gray-100">
-      <header className="bg-black text-white py-4">
-        <div className="container mx-auto text-center">
-          <h1 className="text-3xl font-bold">About Tsoon Cars</h1>
-          <p className="text-sm">Luxury Car Rental in Toronto</p>
-        </div>
-      </header>
-
       <section className="py-8 container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
@@ -27,6 +23,7 @@ function AboutUs() {
         </div>
       </section>
     </div>
+    </>
   );
 }
 

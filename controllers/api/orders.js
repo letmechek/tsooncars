@@ -27,6 +27,44 @@ async function setItemQtyInCart(req, res) {
   res.json(cart)
 }
 
+// async function checkout(req, res) {
+//   try {
+//     const { orderId } = req.params;
+
+//     // Use the `findOne` method to find the order by its unique ID
+//     const order = await Order.findOne(req.body.orderId);
+
+//     if (!order) {
+//       return res.status(404).json({ message: 'Order not found' });
+//     }
+
+//     const orderTotalCents = order.orderTotal * 100; 
+
+//     const session = await stripe.checkout.sessions.create({
+//       line_items: [
+//         {
+//           price_data: {
+//             currency: 'usd',
+//             product_data: {
+//               name: 'Total',
+//               // images: [order.lineItems[0].vehicle.image[0]]
+//             },
+//             unit_amount: orderTotalCents, 
+//           },
+//           quantity: order.totalQty, 
+//         },
+//       ],
+//       mode: 'payment',
+//       success_url: 'https://tsooncars-e2376d515cb8.herokuapp.com/success',
+//       cancel_url: 'https://tsooncars-e2376d515cb8.herokuapp.com/cancel',
+//     });
+// console.log(order.lineItems[0].vehicle.image[0])
+//   res.json({ sessionUrl: session.url });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send('Failed to create session');
+//   }
+
 async function checkout(req, res) {
   try {
     const { orderId } = req.params;
