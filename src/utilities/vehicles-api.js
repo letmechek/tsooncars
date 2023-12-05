@@ -1,11 +1,11 @@
 import sendRequest from './send-request'
 
-const BASE_URL = '/api/babyProducts'
+const BASE_URL = '/api/vehicles'
 
 export function getAll() {
     return sendRequest(BASE_URL)
 }
-export function getProductByCategory(modelId) {
+export function getVehiclesByModel(modelId) {
     return sendRequest(`${BASE_URL}/model/${modelId}`)
 }
 export function getById(id) {

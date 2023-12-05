@@ -1,24 +1,24 @@
 import React from 'react'
-import * as vehiclesAPI from '../../utilities/baby-products-api.js';
+import * as vehiclesAPI from '../../utilities/vehicles-api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import VehicleItems from '../VehicleItems/VehicleItems';
 import VehicleList from '../VehicleList/VehicleList';
 import Loader from '../Loader/Loader';
 
-export default function BabyCategory() {
-    const [babyProducts, setbabyProducts] = useState(null)
+export default function VehicleCategory() {
+    const [vehicles, setVehicles] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
     const {modelId} = useParams()
     useEffect(function(){
         async function fetchVehicles(){
-            const babyProducts = await vehiclesAPI.getProductByCategory(modelId)
-            setbabyProducts(babyProducts)
+            const vehicles = await vehiclesAPI.getVehiclesByModel(modelId)
+            setVehicles(vehicles)
             setIsLoading(false)
         }
         fetchVehicles()
     }, [modelId])
-console.log(babyProducts +'vehicles')
+console.log(vehicles)
   return (
     <>
     {isLoading ? (
@@ -28,8 +28,8 @@ console.log(babyProducts +'vehicles')
     ): (
         
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 ">
-        {babyProducts && babyProducts.map(babyProduct => (
-            <VehicleList key={babyProduct._id} productItem={babyProduct} />
+        {vehicles && vehicles.map(vehicle => (
+            <VehicleList key={vehicle._id} vehicleItem={vehicle} />
         ))}
     </div>
     )}

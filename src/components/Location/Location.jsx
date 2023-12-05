@@ -2,21 +2,20 @@ import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import {mapPin} from '@heroicons/react/24/outline'
 import 'leaflet/dist/leaflet.css';
-import ProfileBanners from "../Banner/ProfileBanners";
+import ProfileBanner from '../Banner/ProfileBanners'
 import banner3 from '../../Assets/images/banner3.jpeg'
 
 
 export default function Location() {
-  const center = [43.688027, -79.393931]; 
+  const center = [43.688027, -79.393931]; // Coordinates for 227 Buteko Avenue, Town Centre, Ndola, Zambia
 
   return (
-    <>
-     <ProfileBanners image={banner3} title='Our Location'/>
-    <div className="p-4 bg-gray-50">
+    <div>
+      <ProfileBanner image={banner3} title='Location' />
     <MapContainer   
         center={center}
         zoom={16}
-        style={{ height: "50vh", width: "100%"}}
+        style={{ height: "50vh", width: "100%" }}
         className="leaflet-container mt-3"
         attributionControl={false}
      >
@@ -32,7 +31,6 @@ export default function Location() {
 </Marker>
     </MapContainer>
     </div>
-    </>
   );
 }
   

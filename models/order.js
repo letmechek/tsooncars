@@ -1,18 +1,17 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const babyProductSchema = require('./babyProductSchema')
+const vehicleSchema = require('./vehicleSchema')
 
 const lineItemSchema = new Schema({
     qty: { type: Number, default: 1 },
-    babyProduct: babyProductSchema
-}, 
-{
+    vehicle: vehicleSchema
+}, {
     // timestamps: true,
     toJSON: { virtuals: true }
 })
 
 lineItemSchema.virtual('extPrice').get(function() {
-    return this.qty * this.babyProduct.price
+    return this.qty * this.vehicle.price
 })
 
 const orderSchema = new Schema({
@@ -27,11 +26,11 @@ const orderSchema = new Schema({
 })
 
 orderSchema.virtual('orderTotal').get(function() {
-    return this.lineItems.reduce((total, babyProduct) => total + babyProduct.extPrice, 0)
+    return this.lineItems.reduce((total, vehicle) => total + vehicle.extPrice, 0)
 })
 
 orderSchema.virtual('totalQty').get(function() {
-    return this.lineItems.reduce((total, babyProduct) => total + babyProduct.qty, 0)
+    return this.lineItems.reduce((total, vehicle) => total + vehicle.qty, 0)
 })
 
 orderSchema.virtual('orderId').get(function() {
@@ -46,21 +45,21 @@ orderSchema.statics.getCart = function(userId) {
     )
 }
 
-orderSchema.methods.addItemToCart = async function(babyProductId) {
+orderSchema.methods.addItemToCart = async function(vehicleId) {
     const cart = this
-    const lineItem = cart.lineItems.find(lineItem => lineItem.babyProduct._id.equals(babyProductId))
+    const lineItem = cart.lineItems.find(lineItem => lineItem.vehicle._id.equals(vehicleId))
     if(lineItem) {
         lineItem.qty += 1
     } else {
-        const babyProduct = await mongoose.model('BabyProduct').findById(babyProductId)
-        cart.lineItems.push({ babyProduct })
+        const vehicle = await mongoose.model('Vehicle').findById(vehicleId)
+        cart.lineItems.push({ vehicle })
     }
     return cart.save()
 }
 
-orderSchema.methods.setItemQty = function(babyProductId, newQty) {
+orderSchema.methods.setItemQty = function(vehicleId, newQty) {
     const cart = this
-    const lineItem = cart.lineItems.find(lineItem => lineItem.babyProduct._id.equals(babyProductId))
+    const lineItem = cart.lineItems.find(lineItem => lineItem.vehicle._id.equals(vehicleId))
     if(lineItem && newQty <= 0) {
         lineItem.remove()
     } else if(lineItem){

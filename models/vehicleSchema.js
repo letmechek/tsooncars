@@ -2,16 +2,15 @@ const Schema = require('mongoose').Schema;
 
 
 
-const babyProductSchema = new Schema({
+const vehicleSchema = new Schema({
   name: { type: String, required: true },
   image: [{ type: String, required: true }],
-  BabyCategory: {type: Schema.Types.ObjectId, ref: 'BabyCategory'},
+  VehicleModel: {type: Schema.Types.ObjectId, ref: 'vehicleCategories'},
   price: { type: Number, required: true, default: 0 },
-  size: [{ type: String }]
   
 }, {
   timestamps: true
 });
 
-module.exports = babyProductSchema;
+module.exports = vehicleSchema;
 

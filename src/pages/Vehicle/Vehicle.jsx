@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
-import * as vehiclesAPI from '../../utilities/baby-products-api';
+import * as vehiclesAPI from '../../utilities/vehicles-api';
 import VehicleItems from '../../components/VehicleItems/VehicleItems';
 import Loader from '../../components/Loader/Loader';
-import ProfileBanners from '../../components/Banner/ProfileBanners';
+import ProfileBanner from '../../components/Banner/ProfileBanners'
 import banner3 from '../../Assets/images/banner3.jpeg'
+
 
 export default function Vehicle() {
     const [vehicleItems, setVehicleItems] = useState([]);
@@ -20,7 +21,7 @@ export default function Vehicle() {
     }, [])
   return (
     <>
-    <ProfileBanners image={banner3}  title='All Our Cars' />
+    <ProfileBanner image={banner3} title='Location' />
     {isLoading ? (
       <div className=''>
         <Loader/>

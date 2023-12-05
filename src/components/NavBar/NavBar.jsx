@@ -20,7 +20,7 @@ const navigation = [
 const secondNav = [
     {name: 'HOME PAGE', to: '/', current: false},
     {name: 'ABOUT US', to: '/about-us', current: false},
-    {name: 'Shop All', to: '/products', current: false},
+    {name: 'ALL OUR CARS', to: '/brands', current: false},
     {name: 'OUR LOCATION', to: '/location', current: false},
    
 ]
@@ -40,7 +40,7 @@ export default function NavBar({user , setUser}) {
     }
     return (
         <>
-        <Disclosure as="nav" className="bg-sky-800">
+        <Disclosure as="nav" className="bg-black">
         {({ open }) => (
             <>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -57,24 +57,24 @@ export default function NavBar({user , setUser}) {
                     )}
                     </Disclosure.Button>
                 </div>
-                <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start ">
+                <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="flex flex-shrink-0 items-center">
                         <Link to="/">
                     <img
-                        className="h-16 w-auto filter invert"
+                        className="h-16 w-auto"
                         src={logo}
                         alt="Your Company"
                     />
                     </Link>
                     </div>
-                    <div className="hidden sm:ml-6 sm:block ">
-                    <div className="flex space-x-4 ">
+                    <div className="hidden sm:ml-6 sm:block">
+                    <div className="flex space-x-4">
                         {navigation.map((item) => (
                         <a
                             key={item.name}
                             href={item.href}
                             className={classNames(
-                            item.current ? 'bg-sky-400 text-white' : 'text-white hover:bg-sky-300 hover:text-white',
+                            item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                             'rounded-md px-8 py-6 text-lg font-medium'
                             )}
                             aria-current={item.current ? 'page' : undefined}
@@ -192,7 +192,7 @@ export default function NavBar({user , setUser}) {
                             key={item.name}
                             to={item.to}
                             className={classNames(
-                            item.current ? 'bg-sky-400 text-white' : 'text-white font-semibold hover:bg-sky-200 hover:text-white',
+                            item.current ? 'bg-yellow-400 text-white' : 'text-white font-semibold hover:bg-yellow-400 hover:text-white',
                             'rounded-md px-3 py-2 text-sm font-medium'
                             )}
                             aria-current={item.current ? 'page' : undefined}
